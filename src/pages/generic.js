@@ -15,12 +15,32 @@ const Generic = (props) => (
       <section id='one'>
         <div className='inner'>
           <header className='major'>
-            <h1>Generic</h1>
+            <h1>英会話</h1>
           </header>
           <span className='image main'><img src={pic11} alt='' /></span>
-          <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-          <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+          <p>世界の人々が理解し合うために英語はますます必要になっていきます。外国語を習得する最良の方法は『言葉のリズム』にまず慣れることです。初歩の段階ではテキストの内容に沿った会話練習が多く、 実力が上るに連れテキストの内容を基本とした応用会話や自由会話の度合が増します。</p>
+          <hr />
+          <dl>
+            <dt>イブニング・コース ＆ 土曜日英語コース</dt>
+            <dd>
+              <p>タ方の成人クラスです。長い実績を持ち、多くの人に親しまれているコースです。16 歳以上の方から受講できます。会話クラスに加えて、ビジネス会話クラスが好評です。初級から上級まで多段階のレベルがあり実力に合ったクラスに入学して頂きます。</p>
+            </dd>
+            <hr />
+            <dt>デイ・コース</dt>
+            <dd>
+              <p>昼間の成人コースです。長い実績を誇るコースです。多くの主婦の方に親しまれているコースです。初級から上級まで多段階のレベルがあり実力に合ったクラスに入学して頂きます。内容はイブニング・コースと同様です</p>
+            </dd>
+            <hr />
+            <dt>プライム・イングリシュ・コース （旧名称：アダルト・イングリッシュ・コース） </dt>
+            <dd>
+              <p>成人の年令別編成コースです。
+ABC 発音復習から始める入門クラスから中級クラスまであります。
+当校はシニアの英会話クラスを、他に先駆けて開講（１９７８年）し、予想を超え
+る好評を得た実績があります。以来、伝統を誇っています。「壮年・高年者の英会話クラ
+ス発祥の教室」として受講者の方に満足頂けるような親しみやすい教授法も豊かです。 </p>
+            </dd>
+          </dl>
+
         </div>
       </section>
     </div>

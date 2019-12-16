@@ -30,23 +30,23 @@ class HomeIndex extends React.Component {
             <article style={{ backgroundImage: `url(${pic01})` }}>
               <header className='major'>
                 <h3>先生たちからのワンポイントアドバイス</h3>
-                <p>Ipsum dolor sit amet</p>
+                <p>先生をご紹介します。</p>
               </header>
               <Link to='/teachers' className='link primary' />
             </article>
             <article style={{ backgroundImage: `url(${pic02})` }}>
               <header className='major'>
                 <h3>英語</h3>
-                <p>feugiat amet tempus</p>
+                <p>英語は世界をつなげます。</p>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/generic' className='link primary' />
             </article>
           </section>
           <section id='two' className='tiles' id='french'>
             <article style={{ backgroundImage: `url(${pic03})` }}>
               <header className='major'>
                 <h3>フランス語</h3>
-                <p>Lorem etiam nullam</p>
+                <p>フランス語は美しく話すことばです。</p>
               </header>
               <Link to='/landing' className='link primary' />
             </article>

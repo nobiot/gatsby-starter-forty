@@ -11,13 +11,10 @@ const Banner = (props) => (
       </header>
       <div className='content'>
         <ul className='actions'>
-          <li><a href='#one' className='button next fit scrolly'>高校生 英語塾</a></li>
-        </ul>
-      </div>
-      <div className='content'>
-        <ul className='actions'>
-          <li><a href='#one' className='button  special scrolly'>英語</a></li>
-          <li><a href='#french' className='button  special scrolly'>フランス語</a></li>
+          <li><a href='#one' >高校生 英語塾</a></li>
+          <li><a href='#one' >壮年・高年者の英会話</a></li>
+          <li><a href='#one' >帰国子女英語・フランス語</a></li>
+          <li><a href='#one' >幼児童英語・フランス語</a></li>
         </ul>
       </div>
     </div>
