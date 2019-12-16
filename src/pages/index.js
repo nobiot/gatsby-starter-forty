@@ -30,14 +30,21 @@ class HomeIndex extends React.Component {
             <article style={{ backgroundImage: `url(${pic01})` }}>
               <header className='major'>
                 <h3>先生たちからのワンポイントアドバイス</h3>
-                <p>先生をご紹介します。</p>
+                <p>個性あふれる先生たちをご紹介します。</p>
               </header>
               <Link to='/teachers' className='link primary' />
             </article>
             <article style={{ backgroundImage: `url(${pic02})` }}>
               <header className='major'>
                 <h3>英語</h3>
-                <p>英語は世界をつなげます。</p>
+                <p>
+                  <ul className='actions'>
+                    <li>高校生英語塾</li>
+                    <li>壮年・高年者の英会話</li>
+                    <li>帰国子女英語</li>
+                    <li>幼児童英語</li>
+                  </ul>
+                </p>
               </header>
               <Link to='/generic' className='link primary' />
             </article>
@@ -46,7 +53,10 @@ class HomeIndex extends React.Component {
             <article style={{ backgroundImage: `url(${pic03})` }}>
               <header className='major'>
                 <h3>フランス語</h3>
-                <p>フランス語は美しく話すことばです。</p>
+                <ul className='actions'>
+                  <li><a href='#one' >帰国子女フランス語</a></li>
+                  <li><a href='#one' >幼児童フランス語</a></li>
+                </ul>
               </header>
               <Link to='/landing' className='link primary' />
             </article>

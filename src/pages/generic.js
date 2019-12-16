@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 
-import pic11 from '../assets/images/pic11.jpg'
+import pic11 from '../assets/images/andrei-ianovskii-SKHq5rmFO24-unsplash.jpg'
 
 const Generic = (props) => (
   <Layout>
@@ -17,7 +17,7 @@ const Generic = (props) => (
           <header className='major'>
             <h1>英会話</h1>
           </header>
-          <span className='image main'><img src={pic11} alt='' /></span>
+          <span className='image main style5' style={{ maxHeight: '200' }}><img style={{ maxHeight: 200, height: 150, objectFit: 'cover' }} src={pic11} alt='' /></span>
           <p>世界の人々が理解し合うために英語はますます必要になっていきます。外国語を習得する最良の方法は『言葉のリズム』にまず慣れることです。初歩の段階ではテキストの内容に沿った会話練習が多く、 実力が上るに連れテキストの内容を基本とした応用会話や自由会話の度合が増します。</p>
           <hr />
           <dl>
@@ -33,11 +33,7 @@ const Generic = (props) => (
             <hr />
             <dt>プライム・イングリシュ・コース （旧名称：アダルト・イングリッシュ・コース） </dt>
             <dd>
-              <p>成人の年令別編成コースです。
-ABC 発音復習から始める入門クラスから中級クラスまであります。
-当校はシニアの英会話クラスを、他に先駆けて開講（１９７８年）し、予想を超え
-る好評を得た実績があります。以来、伝統を誇っています。「壮年・高年者の英会話クラ
-ス発祥の教室」として受講者の方に満足頂けるような親しみやすい教授法も豊かです。 </p>
+              <p>成人の年令別編成コースです。ABC発音復習から始める入門クラスから中級クラスまであります。当校はシニアの英会話クラスを、他に先駆けて開講（１９７８年）し、予想を超える好評を得た実績があります。以来、伝統を誇っています。「壮年・高年者の英会話クラス発祥の教室」として受講者の方に満足頂けるような親しみやすい教授法も豊かです。 </p>
             </dd>
           </dl>
 
