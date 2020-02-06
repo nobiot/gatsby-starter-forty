@@ -3,13 +3,14 @@ backend:
   branch: master
 media_folder: static/media
 public_folder: /media
+folder: "src/pages/blog"
 collections:
   - name: blog
     label: Blog
     folder: blog
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: path, label: Path }
       - { name: date, label: Date, widget: datetime }
       - { name: title, label: Titl }
       - { name: body, label: Body, widget: markdown }
