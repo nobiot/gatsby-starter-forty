@@ -8,7 +8,7 @@ import pic08 from '../assets/images/pic08.jpg'
 import pic09 from '../assets/images/pic09.jpg'
 import pic10 from '../assets/images/pic10.jpg'
 
-const Landing = (props) => {
+const French = (props) => {
   return (
     <Layout>
       <Helmet>
@@ -16,7 +16,7 @@ const Landing = (props) => {
         <meta name='description' content='Landing Page' />
       </Helmet>
 
-      <BannerLanding title='英語' />
+      <BannerLanding title='フランス語' subTitle='美しく、フランス語は美しく話す言葉です。' />
 
       <div id='main'>
         <section id='one'>
@@ -83,4 +83,4 @@ const Landing = (props) => {
   )
 }
 
-export default Landing
+export default French

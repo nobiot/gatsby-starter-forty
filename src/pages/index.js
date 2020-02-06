@@ -37,35 +37,37 @@ class HomeIndex extends React.Component {
             <article className='style2' style={{ backgroundImage: `url(${pic04})` }}>
               <header className='major'>
                 <h1>高校生英語塾</h1>
-                <p><ul className='actions'>
+                <ul className='no-bullet'>
                   <li>大学入学試験での高得点の取得</li>
                   <li>英語力を生涯向上させる基盤づくり</li>
-                </ul></p>
+                </ul>
               </header>
               <Link to='/landing' className='link primary' />
             </article>
             <article className='style3' style={{ backgroundImage: `url(${pic02})` }}>
               <header className='major'>
                 <h1>英語</h1>
-                <ul className='actions'>
-                  <li>壮年・高年者の英会話</li>
+                <ul className='no-bullet'>
+                  <li>プライム・イングリッシュ・コース 壮年・高年者の英会話</li>
                   <li>イブニング・コース＆土曜日英語コース</li>
                   <li>デイ・コース</li>
                   <li>帰国子女英語</li>
                   <li>子ども英語塾</li>
                 </ul>
               </header>
-              <Link to='/generic' className='link primary' />
+              <Link to='/english' className='link primary' />
             </article>
             <article className='style4' style={{ backgroundImage: `url(${pic03})` }}>
               <header className='major'>
                 <h1>フランス語</h1>
-                <ul className='actions'>
-                  <li><a href='#one' >帰国子女フランス語</a></li>
-                  <li><a href='#one' >幼児童フランス語</a></li>
+                <ul className='no-bullet'>
+                  <li>クール・デュ・ソワール＆土曜日フランス語コース </li>
+                  <li>クール・ドゥ・ラ・ジュルネ</li>
+                  <li>帰国子女フランス語</li>
+                  <li>アドレサン（幼児童）フランス語</li>
                 </ul>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/french' className='link primary' />
             </article>
             <article className='style5' style={{ backgroundImage: `url(${pic05})` }}>
               <header className='major'>
