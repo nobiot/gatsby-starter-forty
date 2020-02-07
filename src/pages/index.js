@@ -55,7 +55,7 @@ class HomeIndex extends React.Component {
                   <li>子ども英語塾</li>
                 </ul>
               </header>
-              <Link to='/english' className='link primary' />
+              <Link to='/english-conversation' className='link primary' />
             </article>
             <article className='style4' style={{ backgroundImage: `url(${pic03})` }}>
               <header className='major'>

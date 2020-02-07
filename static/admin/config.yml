@@ -21,6 +21,6 @@ collections:
     fields:
       - { name: date, label: 日付, widget: datetime }
       - { name: title, label: タイトル }
-      - { name: suTitle, label: サブタイトル }
+      - { name: subTitle, label: サブタイトル }
       - { name: slug, label: スラッグ }
       - { name: body, label: 本文, widget: markdown }
