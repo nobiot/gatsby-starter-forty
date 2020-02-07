@@ -6,10 +6,21 @@ public_folder: /media
 collections:
   - name: blog
     label: ブログ
-    folder: "src/pages/blog"
+    folder: "src/blogs/"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { name: date, label: 日付, widget: datetime }
       - { name: title, label: タイトル }
+      - { name: body, label: 本文, widget: markdown }
+  - name: page
+    label: ページ
+    folder: "src/pages/"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: date, label: 日付, widget: datetime }
+      - { name: title, label: タイトル }
+      - { name: suTitle, label: サブタイトル }
+      - { name: slug, label: スラッグ }
       - { name: body, label: 本文, widget: markdown }
