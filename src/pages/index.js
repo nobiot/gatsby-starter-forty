@@ -42,7 +42,7 @@ class HomeIndex extends React.Component {
                   <li>英語力を生涯向上させる基盤づくり</li>
                 </ul>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/highschool-english' className='link primary' />
             </article>
             <article className='style3' style={{ backgroundImage: `url(${pic02})` }}>
               <header className='major'>
@@ -55,7 +55,7 @@ class HomeIndex extends React.Component {
                   <li>子ども英語塾</li>
                 </ul>
               </header>
-              <Link to='/english-conversation' className='link primary' />
+              <Link to='/english' className='link primary' />
             </article>
             <article className='style4' style={{ backgroundImage: `url(${pic03})` }}>
               <header className='major'>
@@ -74,31 +74,31 @@ class HomeIndex extends React.Component {
                 <h3>マンツーマン</h3>
                 <p>マンツーマン・クラス（１人クラス）で効率的に英会話を修得できます。 </p>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/one-to-one' className='link primary' />
             </article>
             <article className='style6' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>子ども英語塾</h1>
                 <p>楽しく英会話と書き方を学びます。</p>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/kids-english' className='link primary' />
             </article>
             <article className='style1' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>体験レッスン</h1>
                 <p>体験は無料です。体験レッスンで、あなたに合ったクラスを選びましょう。先生も同時にレベル・チェックをしてくれます。ぜひお試し下さい。</p>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/trial' className='link primary' />
             </article>
             <article className='style2' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>会話スペース</h1>
                 <p>当校の受講者でなくても、自由に参加できます。会話力のレベルは問いません。英会話。フランス語会話。土曜日。参加費￥1,000 (初回は無料です) 気軽にご参加ください。</p>
               </header>
-              <Link to='/landing' className='link primary' />
+              <Link to='/space' className='link primary' />
             </article>
           </section>
-          <section className='tiles'>
+          {/* <section className='tiles'>
             <div className='inner'>
               <header className='major'>
                 <h2>お知らせ</h2>
@@ -107,7 +107,7 @@ class HomeIndex extends React.Component {
                 <li><Link to='/landing' className='button'>お知らせ一覧</Link></li>
               </ul>
             </div>
-          </section>
+          </section> */}
           <section className='tiles'>
             <div className='inner'>
               <header className='major'>
@@ -116,7 +116,7 @@ class HomeIndex extends React.Component {
               <p>世界は英語で心をつなぎます。</p>
               <p>美しく、フランス語は美しく話す言葉です。</p>
               <ul className='actions'>
-                <li><Link to='/landing' className='button'>本校の特色と沿革</Link></li>
+                <li><Link to='/about' className='button'>本校の特色と沿革</Link></li>
               </ul>
             </div>
           </section>
