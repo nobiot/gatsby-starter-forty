@@ -71,29 +71,40 @@ class HomeIndex extends React.Component {
             </article>
             <article className='style5' style={{ backgroundImage: `url(${pic05})` }}>
               <header className='major'>
-                <h3>マンツーマン</h3>
-                <p>マンツーマン・クラス（１人クラス）で効率的に英会話を修得できます。 </p>
+                <h3>マンツーマン <br /> セミ・プライベート</h3>
+                <ul className='no-bullet'>
+                  <li>マンツーマン・クラスで効率的に英会話を修得できます。 </li>
+                  <li>セミ・プライベートではご要望に合わせた（専門の研究発表のプラクティスなど）のカスタマイズができます。 </li>
+                </ul>
               </header>
               <Link to='/one-to-one' className='link primary' />
             </article>
             <article className='style6' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>子ども英語塾</h1>
-                <p>楽しく英会話と書き方を学びます。</p>
+                <ul className='no-bullet'>
+                  <li>楽しく英会話と書き方を学びます。</li>
+                </ul>
               </header>
               <Link to='/kids-english' className='link primary' />
             </article>
             <article className='style1' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>体験レッスン</h1>
-                <p>体験は無料です。体験レッスンで、あなたに合ったクラスを選びましょう。先生も同時にレベル・チェックをしてくれます。ぜひお試し下さい。</p>
+                <ul className='no-bullet'>
+                  <li>体験は無料です。体験レッスンで、あなたに合ったクラスを選びましょう。先生も同時にレベル・チェックをしてくれます。ぜひお試し下さい。</li>
+                </ul>
               </header>
               <Link to='/trial' className='link primary' />
             </article>
             <article className='style2' style={{ backgroundImage: `url(${pic06})` }}>
               <header className='major'>
                 <h1>会話スペース</h1>
-                <p>当校の受講者でなくても、自由に参加できます。会話力のレベルは問いません。英会話。フランス語会話。土曜日。参加費￥1,000 (初回は無料です) 気軽にご参加ください。</p>
+                <ul className='no-bullet'>
+                  <li>当校の受講者でなくても、自由に参加できます。会話力のレベルは問いません。</li>
+                  <li>英会話 フランス語会話</li>
+                  <li>土曜日 参加費1,000円 (初回は無料です) お気軽にご参加ください。</li>
+                </ul>
               </header>
               <Link to='/space' className='link primary' />
             </article>
