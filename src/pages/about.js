@@ -1,9 +1,9 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
 
+// TODO pitures need to be changed
 import pic08 from '../assets/images/pic08.jpg'
 import pic09 from '../assets/images/pic09.jpg'
 import pic10 from '../assets/images/pic10.jpg'
@@ -51,7 +51,7 @@ const Generic = (props) => (
               </header>
               <dl>
                 <dt>
-                1971年6月3日
+                  1971年6月3日
                 </dt>
                 <dd>
                   開校。授業開始日。
@@ -80,30 +80,30 @@ const Generic = (props) => (
             <div className='inner'>
               <dl>
                 <dt>
-                1978年2月20日
+                  1978年2月20日
                 </dt>
                 <dd>
-                全受講者及び全職員とともに、隣りの駅に移転。
-新住所は、東京都目黒区自由が丘1－28－8自由が丘デパート4F
-東横線及び大井町線自由が丘駅正面改札口直前の所。
-校名も現在の『自由が丘ランゲージスクール』に改める。
+                  全受講者及び全職員とともに、隣りの駅に移転。
+                  新住所は、東京都目黒区自由が丘1－28－8自由が丘デパート4F
+                  東横線及び大井町線自由が丘駅正面改札口直前の所。
+                  校名も現在の『自由が丘ランゲージスクール』に改める。
                 </dd>
               </dl>
               <dl>
                 <dt>
-                1978年10月
+                  1978年10月
                 </dt>
                 <dd>
-                他に先がけて壮年・高年者の英語コースを開講。
-『アダル卜・イングリッシユ・コース』( 現名称『プライム・イングリッシュ・コース』 ）と名付けて、最初は40才以上の人を対象とした。
+                  他に先がけて壮年・高年者の英語コースを開講。
+                  『アダル卜・イングリッシユ・コース』( 現名称『プライム・イングリッシュ・コース』 ）と名付けて、最初は40才以上の人を対象とした。
                 </dd>
               </dl>
-<p>校長：太 田 嘉 明<br/>
-早稲田大学（哲学）卒<br/>
-同修士卒<br/>
-米国インディアナ大学留学<br/>
-仏国ソルボンヌ留学<br/>
-元　大学講師（英語担当）</p>
+              <p>校長：太 田 嘉 明<br />
+              早稲田大学（哲学）卒<br />
+              同修士卒<br />
+              米国インディアナ大学留学<br />
+              仏国ソルボンヌ留学<br />
+              元 大学講師（英語担当）</p>
             </div>
           </div>
         </section>

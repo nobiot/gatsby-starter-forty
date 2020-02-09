@@ -25,6 +25,15 @@ module.exports = {
         path: `${__dirname}/src/pages`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `media`,
+        path: `${__dirname}/static/media`
+      }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     'gatsby-transformer-remark',
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',

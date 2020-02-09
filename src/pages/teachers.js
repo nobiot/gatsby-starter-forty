@@ -1,84 +1,65 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
+import Img from 'gatsby-image'
 
-import pic08 from '../assets/images/pic08.jpg'
-import pic09 from '../assets/images/pic09.jpg'
-import pic10 from '../assets/images/pic10.jpg'
+export default ({ data }) => {
+  const images = data.allImageSharp.edges
+  const Baldin = data.Baldin.fixed
+  const Albouy = data.Albouy.fixed
 
-const Landing = (props) => (
-  <Layout>
-    <Helmet>
-      <title>先生</title>
-      <meta name='description' content='Landing Page' />
-    </Helmet>
+  console.log(`data: ${data}`)
+  return (
+    <Layout>
+      <Helmet>
+        <title>JLSの個性豊かな先生たち</title>
+        <meta name='description' content='自由が丘ランゲージスクールの個性豊かな先生たち' />
+      </Helmet>
 
-    <BannerLanding />
+      <BannerLanding title='JLSの個性豊かな先生たち' subTitle='先生たちの一言メッセージとプロフィール' />
 
-    <div id='main'>
-      <section id='one'>
+      <div id='main'>
         <div className='inner'>
-          <header className='major'>
-            <h2>Sed amet aliquam</h2>
-          </header>
-          <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
+          <Img fixed={Baldin} />
+          <Img fixed={Albouy} />
+          <div class='grid-wrapper'>
+            {images.map(image => (
+              <div class='col-4'>
+                <Img fixed={image.node.fixed} />
+                <p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
-      <section id='two' className='spotlights'>
-        <section>
-          <Link to='/generic' className='image'>
-            <img src={pic08} alt='' />
-          </Link>
-          <div className='content'>
-            <div className='inner'>
-              <header className='major'>
-                <h3>Orci maecenas</h3>
-              </header>
-              <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-              <ul className='actions'>
-                <li><Link to='/generic' className='button'>Learn more</Link></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to='/generic' className='image'>
-            <img src={pic09} alt='' />
-          </Link>
-          <div className='content'>
-            <div className='inner'>
-              <header className='major'>
-                <h3>Rhoncus magna</h3>
-              </header>
-              <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-              <ul className='actions'>
-                <li><Link to='/generic' className='button'>Learn more</Link></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <Link to='/generic' className='image'>
-            <img src={pic10} alt='' />
-          </Link>
-          <div className='content'>
-            <div className='inner'>
-              <header className='major'>
-                <h3>Sed nunc ligula</h3>
-              </header>
-              <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-              <ul className='actions'>
-                <li><Link to='/generic' className='button'>Learn more</Link></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </section>
-    </div>
+      </div>
+    </Layout>
+  )
+}
 
-  </Layout>
-)
-
-export default Landing
+export const query = graphql`
+  query {
+    allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
+      edges {
+        node {
+          fixed(width: 130, 
+            height: 130, 
+            traceSVG: { color: "#A7DEF6" } ) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+    Baldin: imageSharp(original: {src: {regex: "/Baldin/"}}) {
+      fixed(width: 130, height: 130) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+    Albouy: imageSharp(original: {src: {regex: "/Albouy/"}}) {
+      fixed(width: 130, height: 130) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
