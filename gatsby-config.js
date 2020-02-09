@@ -35,6 +35,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-transformer-remark',
+    `gatsby-plugin-modal-routing`,
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify-cms'
