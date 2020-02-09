@@ -22,12 +22,19 @@ export default ({ data }) => {
 
       <div id='main'>
         <div className='inner'>
-          <Img fixed={Baldin} />
-          <Img fixed={Albouy} />
+          {/* <Img fixed={Baldin} />
+          <Img fixed={Albouy} /> */}
           <div class='grid-wrapper'>
             {images.map(image => (
               <div class='col-4'>
-                <Img fixed={image.node.fixed} />
+                <Img fixed={image.node.fixed}
+                  style={{ display: `block`, margin: `0 auto` }}
+                  imgStyle={{ borderRadius: `100%` }} />
+                <div style={{ textAlign: `center` }}>
+                  <p>アルブイ先生 <br />
+                    <small>フランス語</small>
+                  </p>
+                </div>
                 <p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>
               </div>
             ))}
@@ -45,7 +52,7 @@ export const query = graphql`
         node {
           fixed(width: 130, 
             height: 130, 
-            traceSVG: { color: "#A7DEF6" } ) {
+            ) {
             ...GatsbyImageSharpFixed
           }
         }
