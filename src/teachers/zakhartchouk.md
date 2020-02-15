@@ -5,7 +5,7 @@ longNameEN: Andrew Zakhartchouk
 longNameJP: アンドリュー・ザハルチュック
 language: 英語
 image: /media/teacher-AZakhartchouk.jpg
-comment: d
+comment: 
 ---
 研究熱心な先生。英語の教え方も熱意がこもる。
 

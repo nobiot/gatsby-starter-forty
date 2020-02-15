@@ -35,7 +35,7 @@ collections:
       - { name: longNameJP, label: "フルネーム（日本語。「先生」は不要。例:ジャン－ミッシェル・バルダン)", widget: string}
       - { name: language, label: 教科言語（例：フランス語）, widget: string}
       - { name: image, label: プロフィール写真, widget: image }
-      - { name: comment, label: 一言コメント, widget: text }
+      - { name: comment, label: 一言コメント, widget: text, required: false }
       - { name: body, label: プロフィール本文, widget: markdown }
       
       
