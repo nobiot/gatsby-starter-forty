@@ -4,7 +4,7 @@ shortNameJP: キャトン
 longNameEN: John Catton
 longNameJP: ジョン・キャトン
 language: 英語
-image: /media/teacher-eAlbouy-300x225.jpeg
+image: /media/teacher-JCatton.jpg
 comment: 「英語は、あなたの前の多くの扉を開くことのできる鍵です。」
 ---
 きちょう面で温かい先生。２０年近くの豊富な教授経験を持つ。綺麗なブリティシュ・イングリッシュを教える。
