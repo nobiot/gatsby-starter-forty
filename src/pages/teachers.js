@@ -36,6 +36,9 @@ export default ({ data }) => {
     setIsOpen(true)
     event.preventDefault()
     // hide the PortalModal that is NOT the one for the teacher clicked
+    // Currently this is done via the "id". It's the titile = id of the markdown file.
+    // This solution might be fragile...
+    // Perhaps changing to the Japanese sirname is OK
     let modalPortalDivs = document.querySelectorAll(`div[class$="ModalPortal"]`)
     modalPortalDivs.forEach(div => {
       if (div.classList[0] === `${event.currentTarget.id}ModalPortal`) {
@@ -157,16 +160,6 @@ export const query = graphql`
           }
           html
         }
-      }
-    }
-    Baldin: imageSharp(original: {src: {regex: "/Baldin/"}}) {
-      fixed(width: 130, height: 130) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-    Albouy: imageSharp(original: {src: {regex: "/Albouy/"}}) {
-      fixed(width: 130, height: 130) {
-        ...GatsbyImageSharpFixed
       }
     }
   }

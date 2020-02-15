@@ -34,5 +34,8 @@
 					@include vendor('transition', 'none !important');
 				}
 			}
-
 	}
+
+	*:focus {
+    outline-color: _palette(border)
+  }
