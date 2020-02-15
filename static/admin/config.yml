@@ -24,3 +24,17 @@ collections:
       - { name: subTitle, label: サブタイトル, widget: "text", required: false}
       - { name: slug, label: スラッグ }
       - { name: body, label: 本文, widget: markdown }
+  - name: teacher
+    label: 先生プロフィール
+    folder: "src/teachers/"
+    create: true
+    fields:
+      - { name: id, label: ID, widget: "text" }
+      - { name: shortNameJP, label:　苗字（日本語。「先生」は不要例:バルダン), widget: "text"}
+      - { name: longNameEN, label:　Full Name in alphabet; e.g.:Jean-Michel Bardin, widget: "text"}
+      - { name: longNameJP, label:　フルネーム（日本語。「先生」は不要。例:ジャン－ミッシェル・バルダン), widget: "text"}
+      - { name: language, label: 教科言語（例：フランス語）, widget: "text"}
+      - { name: comment, label: 一言コメント, widget: markdown }
+      - { name: profile, label: プロフィール本文, widget: markdown }
+      - { name: image, label: プロフィール写真, widget: image }
+      

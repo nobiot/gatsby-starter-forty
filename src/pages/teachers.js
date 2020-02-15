@@ -11,9 +11,9 @@ export default ({ data }) => {
 
   const Baldin = {
     id: 'baldin',
-    shortNameJP: `バルダン先生`,
+    shortNameJP: `バルダン`,
     longNameEN: 'Jean-Michel Bardin',
-    longNameJP: 'ジャン－ミッシェル・バルダン先生',
+    longNameJP: 'ジャン－ミッシェル・バルダン',
     language: 'フランス語',
     image: data.Baldin.fixed,
     comment: '<p>「果敢に、さらに果敢に、いつも果敢に。そうすれば、フランス語は話せます。」</p>',
@@ -21,9 +21,9 @@ export default ({ data }) => {
   }
   const Albouy = {
     id: 'albouy',
-    shortNameJP: `アルブイ先生`,
+    shortNameJP: `アルブイ`,
     longNameEN: 'Erick Albouy',
-    longNameJP: 'エリック・アルブイ先生',
+    longNameJP: 'エリック・アルブイ',
     language: 'フランス語',
     image: data.Albouy.fixed,
     comment: '<p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>',
@@ -70,7 +70,7 @@ export default ({ data }) => {
                   style={{ display: `block`, margin: `0 auto` }}
                   imgStyle={{ borderRadius: `100%` }} />
                 <div style={{ textAlign: `center` }}>
-                  <p>{teacher.shortNameJP}<br />
+                  <p>{`${teacher.shortNameJP}先生`}<br />
                     <small>{teacher.language}</small>
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export default ({ data }) => {
                     to='#'
                     onClick={openModal}
                   >
-                    {teacher.shortNameJP}のプロフィール
+                    {`${teacher.shortNameJP}先生`}のプロフィール
                   </Link>
                   <Modal
                     isOpen={modalIsOpen}
@@ -91,10 +91,10 @@ export default ({ data }) => {
                     shouldCloseOnOverlayClick
                     className={'modalContent'}
                     overlayClassName={'modalOverlay'}
-                    contentLabel={teacher.shortNameJP}
+                    contentLabel={`${teacher.shortNameJP}先生`}
                     portalClassName={`${teacher.id}ModalPortal`}
                   >
-                    <h2>{teacher.longNameEN}<br />{teacher.longNameJP}</h2>
+                    <h2>{teacher.longNameEN}<br />{teacher.longNameJP}先生</h2>
                     <div>
                       <Img fixed={teacher.image}
                         style={{ display: `block`, margin: `0 auto` }}
