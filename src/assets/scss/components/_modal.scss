@@ -71,6 +71,6 @@
     'transform #{_duration(modal)} ease-in-out'
   ));
   &:focus {
-    outline-color: _palette(border)
+    outline: 1px solid _palette(border);
   }
 }
