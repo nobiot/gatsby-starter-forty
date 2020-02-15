@@ -8,21 +8,6 @@ import Modal from 'react-modal'
 
 export default ({ data }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
-  const customStyles = {
-    overlay: {
-      overflow: `hidden`
-    },
-    content: {
-      position: 'relative',
-      top: '20%',
-      bottom: 0,
-      right: 0,
-      left: 0,
-      margin: '0 1em',
-      backgroundColor: '#2a2f4a',
-      zIndex: 9999
-    }
-  }
 
   const Baldin = {
     id: 'baldin',
@@ -32,7 +17,7 @@ export default ({ data }) => {
     language: 'フランス語',
     image: data.Baldin.fixed,
     comment: '<p>「果敢に、さらに果敢に、いつも果敢に。そうすれば、フランス語は話せます。」</p>',
-    profile: '<p>長年、フランス語教育の経験を持つ優しい先生。<br />幼児童フランス語教育の経験・研究が豊富だが、大学でもフランス語の教鞭をとる。<br />文学書の購読レッスンは中・上級受講者の賞賛が多い。<br />生物物理学博士。</p>'
+    profile: '<p>長年、フランス語教育の経験を持つ優しい先生。<br />幼児童フランス語教育の経験・研究が豊富だが、大学でもフランス語の教鞭をとる。文学書の購読レッスンは中・上級受講者の賞賛が多い。<br />生物物理学博士。</p>'
   }
   const Albouy = {
     id: 'albouy',
@@ -78,9 +63,9 @@ export default ({ data }) => {
 
       <div id='main'>
         <div className='inner'>
-          <div class='grid-wrapper'>
+          <div className='grid-wrapper'>
             {teachers.map(teacher => (
-              <div class='col-4'>
+              <div className='col-4'>
                 <Img fixed={teacher.image}
                   style={{ display: `block`, margin: `0 auto` }}
                   imgStyle={{ borderRadius: `100%` }} />
@@ -101,10 +86,12 @@ export default ({ data }) => {
                   <Modal
                     isOpen={modalIsOpen}
                     //  onAfterOpen={afterOpenModal}
+                    closeTimeoutMS={300}
                     onRequestClose={closeModal}
                     shouldCloseOnOverlayClick
-                    style={customStyles}
-                    contentLabel={teacher.id}
+                    className={'modalContent'}
+                    overlayClassName={'modalOverlay'}
+                    contentLabel={teacher.shortNameJP}
                     portalClassName={`${teacher.id}ModalPortal`}
                   >
                     <h2>{teacher.longNameEN}<br />{teacher.longNameJP}</h2>
