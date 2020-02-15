@@ -16,7 +16,7 @@ export default ({ data }) => {
     longNameJP: 'ジャン－ミッシェル・バルダン',
     language: 'フランス語',
     image: data.Baldin.fixed,
-    comment: '<p>「果敢に、さらに果敢に、いつも果敢に。そうすれば、フランス語は話せます。」</p>',
+    comment: '「果敢に、さらに果敢に、いつも果敢に。そうすれば、フランス語は話せます。」',
     profile: '<p>長年、フランス語教育の経験を持つ優しい先生。<br />幼児童フランス語教育の経験・研究が豊富だが、大学でもフランス語の教鞭をとる。文学書の購読レッスンは中・上級受講者の賞賛が多い。<br />生物物理学博士。</p>'
   }
   const Albouy = {
@@ -26,7 +26,7 @@ export default ({ data }) => {
     longNameJP: 'エリック・アルブイ',
     language: 'フランス語',
     image: data.Albouy.fixed,
-    comment: '<p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>',
+    comment: '「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」',
     profile: '<p>フランスのエスプリあふれる先生。長年にわたるフランス語教育の経験を持つ。児童から大人まで教える豊かな知識の持ち主。道元の「正法眼蔵」を長年掛けてフランス語に翻訳、Daisen社（ベルギー、2019年8月 URL: daisen-editions.eu）より出版。</p>'
   }
 
@@ -74,7 +74,7 @@ export default ({ data }) => {
                     <small>{teacher.language}</small>
                   </p>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: teacher.comment }} />
+                <p>{teacher.comment}</p>
                 <div style={{ textAlign: `center`, marginBottom: `10px` }}>
                   <Link
                     id={teacher.id}
