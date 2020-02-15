@@ -29,7 +29,7 @@ collections:
     folder: "src/teachers/"
     create: true
     fields:
-      - { name: id, label: ID, widget: string }
+      - { name: title, label: ID }
       - { name: shortNameJP, label: "苗字（日本語。「先生」は不要例:バルダン)", widget: string}
       - { name: longNameEN, label: "Full Name in alphabet; e.g.:Jean-Michel Bardin", widget: string}
       - { name: longNameJP, label: "フルネーム（日本語。「先生」は不要。例:ジャン－ミッシェル・バルダン)", widget: string}
