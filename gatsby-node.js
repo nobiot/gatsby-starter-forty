@@ -34,6 +34,11 @@ exports.createPages = async ({ graphql, actions }) => {
                 subTitle
                 slug
               }
+              parent {
+                ... on File {
+                  relativeDirectory
+                }
+              }
             }
           }
         }
@@ -43,16 +48,18 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors
   }
-  // Create blog posts pages.
+  // Create pages.
   const pages = result.data.allMarkdownRemark.edges
-  pages.forEach((page, index) => {
-    const context = {
-      slug: page.node.frontmatter.slug
-    }
-    createPage({
-      path: page.node.frontmatter.slug,
-      component: path.resolve(`./src/templates/page.js`),
-      context
+  // Work on only the md files in the "pages" folder
+  pages.filter(edge => edge.node.parent.relativeDirectory === 'pages')
+    .forEach(page => {
+      const context = {
+        slug: page.node.frontmatter.slug
+      }
+      createPage({
+        path: page.node.frontmatter.slug,
+        component: path.resolve(`./src/templates/page.js`),
+        context
+      })
     })
-  })
 }

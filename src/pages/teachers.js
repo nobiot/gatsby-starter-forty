@@ -9,6 +9,28 @@ import Modal from 'react-modal'
 export default ({ data }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
 
+  let teachers = []
+  let teacherQueryResult = data.Teachers.edges.filter(edge => edge.node.parent.relativeDirectory === 'teachers')
+  let teacherImages = data.TeacherImages.edges
+
+  teacherQueryResult.forEach(teacher => {
+    // teacher md contains the parent folder '/media/'
+    // teacher image from sharpImage does not contain the folder; only the file name
+    // so we need to remve the folder name in order to match the file name.
+    // Assume there is no duplicate (except accident) so Array.find should be fine
+    const image = teacherImages.find(image => image.node.parent.relativePath === teacher.node.frontmatter.image.replace('/media/', ''))
+    const teacherProfile = {
+      id: teacher.node.frontmatter.title,
+      shortNameJP: teacher.node.frontmatter.shortNameJP,
+      longNameEN: teacher.node.frontmatter.longNameEN,
+      longNameJP: teacher.node.frontmatter.longNameJP,
+      image: image.node.fixed,
+      language: teacher.node.frontmatter.language,
+      comment: teacher.node.frontmatter.comment,
+      profile: teacher.node.html
+    }
+    teachers.push(teacherProfile)
+  })
   const Baldin = {
     id: 'baldin',
     shortNameJP: `バルダン`,
@@ -29,10 +51,8 @@ export default ({ data }) => {
     comment: '「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」',
     profile: '<p>フランスのエスプリあふれる先生。長年にわたるフランス語教育の経験を持つ。児童から大人まで教える豊かな知識の持ち主。道元の「正法眼蔵」を長年掛けてフランス語に翻訳、Daisen社（ベルギー、2019年8月 URL: daisen-editions.eu）より出版。</p>'
   }
-
-  let teachers = []
-  teachers.push(Albouy)
-  teachers.push(Baldin)
+  // teachers.push(Albouy)
+  // teachers.push(Baldin)
 
   function openModal (event) {
     setIsOpen(true)
@@ -119,14 +139,41 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
+    TeacherImages: allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
       edges {
         node {
-          fixed(width: 130, 
-            height: 130, 
+          fixed(width: 150, 
+            height: 150, 
             ) {
             ...GatsbyImageSharpFixed
           }
+          parent {
+            ... on File {
+              relativePath
+            }
+          }
+        }
+      }
+    }
+    Teachers: allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            image
+            language
+            longNameEN
+            longNameJP
+            shortNameJP
+            comment
+          }
+          parent {
+            ... on File {
+              relativeDirectory
+            }
+          }
+          html
         }
       }
     }

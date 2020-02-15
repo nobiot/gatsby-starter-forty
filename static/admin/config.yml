@@ -36,6 +36,6 @@ collections:
       - { name: language, label: 教科言語（例：フランス語）, widget: string}
       - { name: image, label: プロフィール写真, widget: image }
       - { name: comment, label: 一言コメント, widget: text }
-      - { name: profile, label: プロフィール本文, widget: markdown }
+      - { name: body, label: プロフィール本文, widget: markdown }
       
       
