@@ -9,25 +9,58 @@ import Modal from 'react-modal'
 export default ({ data }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
   const customStyles = {
+    overlay: {
+      overflow: `hidden`
+    },
     content: {
-      width: '70%',
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
+      position: 'relative',
+      top: '20%',
+      bottom: 0,
+      right: 0,
+      left: 0,
+      margin: '0 1em',
       backgroundColor: '#2a2f4a',
       zIndex: 9999
     }
   }
-  const images = data.allImageSharp.edges
-  const Baldin = data.Baldin.fixed
-  const Albouy = data.Albouy.fixed
+
+  const Baldin = {
+    id: 'baldin',
+    shortNameJP: `バルダン先生`,
+    longNameEN: 'Jean-Michel Bardin',
+    longNameJP: 'ジャン－ミッシェル・バルダン先生',
+    language: 'フランス語',
+    image: data.Baldin.fixed,
+    comment: '<p>「果敢に、さらに果敢に、いつも果敢に。そうすれば、フランス語は話せます。」</p>',
+    profile: '<p>長年、フランス語教育の経験を持つ優しい先生。<br />幼児童フランス語教育の経験・研究が豊富だが、大学でもフランス語の教鞭をとる。<br />文学書の購読レッスンは中・上級受講者の賞賛が多い。<br />生物物理学博士。</p>'
+  }
+  const Albouy = {
+    id: 'albouy',
+    shortNameJP: `アルブイ先生`,
+    longNameEN: 'Erick Albouy',
+    longNameJP: 'エリック・アルブイ先生',
+    language: 'フランス語',
+    image: data.Albouy.fixed,
+    comment: '<p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>',
+    profile: '<p>フランスのエスプリあふれる先生。長年にわたるフランス語教育の経験を持つ。児童から大人まで教える豊かな知識の持ち主。道元の「正法眼蔵」を長年掛けてフランス語に翻訳、Daisen社（ベルギー、2019年8月 URL: daisen-editions.eu）より出版。</p>'
+  }
+
+  let teachers = []
+  teachers.push(Albouy)
+  teachers.push(Baldin)
 
   function openModal (event) {
     setIsOpen(true)
     event.preventDefault()
+    // hide the PortalModal that is NOT the one for the teacher clicked
+    let modalPortalDivs = document.querySelectorAll(`div[class$="ModalPortal"]`)
+    modalPortalDivs.forEach(div => {
+      if (div.classList[0] === `${event.target.id}ModalPortal`) {
+        div.style.visibility = 'visible' // this is necessary to "toggle" on and off
+      } else {
+        div.style.visibility = 'hidden'
+      }
+    })
   }
 
   function closeModal () {
@@ -45,66 +78,51 @@ export default ({ data }) => {
 
       <div id='main'>
         <div className='inner'>
-          {/* <Img fixed={Baldin} />
-          <Img fixed={Albouy} /> */}
           <div class='grid-wrapper'>
-            {images.map(image => (
+            {teachers.map(teacher => (
               <div class='col-4'>
-                <Img fixed={image.node.fixed}
+                <Img fixed={teacher.image}
                   style={{ display: `block`, margin: `0 auto` }}
                   imgStyle={{ borderRadius: `100%` }} />
                 <div style={{ textAlign: `center` }}>
-                  <p>アルブイ先生 <br />
-                    <small>フランス語</small>
+                  <p>{teacher.shortNameJP}<br />
+                    <small>{teacher.language}</small>
                   </p>
                 </div>
-                <p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>
+                <div dangerouslySetInnerHTML={{ __html: teacher.comment }} />
+                <div style={{ textAlign: `center`, marginBottom: `10px` }}>
+                  <Link
+                    id={teacher.id}
+                    to='#'
+                    onClick={openModal}
+                  >
+                    {teacher.shortNameJP}のプロフィール
+                  </Link>
+                  <Modal
+                    isOpen={modalIsOpen}
+                    //  onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    shouldCloseOnOverlayClick
+                    style={customStyles}
+                    contentLabel={teacher.id}
+                    portalClassName={`${teacher.id}ModalPortal`}
+                  >
+                    <h2>{teacher.longNameEN}<br />{teacher.longNameJP}</h2>
+                    <div>
+                      <Img fixed={teacher.image}
+                        style={{ display: `block`, margin: `0 auto` }}
+                        imgStyle={{ borderRadius: `4%` }}
+                      />
+                      <p>
+                        {teacher.language}
+                      </p>
+                      <div dangerouslySetInnerHTML={{ __html: teacher.profile }} />
+                    </div>
+                    <button onClick={closeModal}>close</button>
+                  </Modal>
+                </div>
               </div>
             ))}
-            <div class='col-4'>
-              <Img fixed={Albouy}
-                style={{ display: `block`, margin: `0 auto` }}
-                imgStyle={{ borderRadius: `100%` }}
-              />
-              <div style={{ textAlign: `center` }}>
-                <p>アルブイ先生 <br />
-                  <small>フランス語</small>
-                </p>
-              </div>
-              <p>「フランス語を学ぶということは、男性名詞、女性名詞母音の優しさ、“R”の発音の難しさの世界に入ることです。特に自分で分かろうとする必要はありません。教えてもらい、進みなさい。そうすれば、全て、うまくいくでしょう。」</p>
-              <div style={{ textAlign: `center` }}>
-                <Link
-                  to='teachers'
-                  onClick={openModal}
-                >
-                  アルブイ先生のプロフィール
-                </Link>
-                <Modal
-                  isOpen={modalIsOpen}
-                  //  onAfterOpen={afterOpenModal}
-                  onRequestClose={closeModal}
-                  style={customStyles}
-                  contentLabel='Example Modal'
-                >
-
-                  <h2>Erick Albouy <br /> エリック・アルブイ先生</h2>
-                  <div>
-                    <Img fixed={Albouy}
-                      style={{ display: `block`, margin: `0 auto` }}
-                      imgStyle={{ borderRadius: `4%` }}
-                    />
-                    <p>
-                      フランス語
-                    </p>
-                    <p>
-                      フランスのエスプリあふれる先生。長年にわたるフランス語教育の経験を持つ。児童から大人まで教える豊かな知識の持ち主。
-                      道元の「正法眼蔵」を長年掛けてフランス語に翻訳、Daisen社（ベルギー、2019年8月 URL: daisen-editions.eu）より出版。
-                    </p>
-                  </div>
-                  <button onClick={closeModal}>close</button>
-                </Modal>
-              </div>
-            </div>
           </div>
         </div>
       </div>
