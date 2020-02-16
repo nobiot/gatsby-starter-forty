@@ -11,20 +11,23 @@ export default ({ data }) => {
 
   let teachers = []
   const teacherQueryResult = data.Teachers.edges.filter(edge => edge.node.parent.relativeDirectory === 'teachers')
-  const teacherImages = data.TeacherImages.edges
+  const teacherProfileImages = data.TeacherProfileImages.edges
+  const teacherThumbImages = data.TeacherThumbImages.edges
 
   teacherQueryResult.forEach(teacher => {
     // teacher md contains the parent folder '/media/'
     // teacher image from sharpImage does not contain the folder; only the file name
     // so we need to remve the folder name in order to match the file name.
     // Assume there is no duplicate (except accident) so Array.find should be fine
-    const image = teacherImages.find(image => image.node.parent.relativePath === teacher.node.frontmatter.image.replace('/media/', ''))
+    const profileImage = teacherProfileImages.find(image => image.node.parent.relativePath === teacher.node.frontmatter.image.replace('/media/', ''))
+    const thumbImage = teacherThumbImages.find(image => image.node.parent.relativePath === teacher.node.frontmatter.image.replace('/media/', ''))
     const teacherProfile = {
       id: teacher.node.frontmatter.title,
       shortNameJP: teacher.node.frontmatter.shortNameJP,
       longNameEN: teacher.node.frontmatter.longNameEN,
       longNameJP: teacher.node.frontmatter.longNameJP,
-      image: image.node.fixed,
+      profileImage: profileImage.node.fluid,
+      thumbImage: thumbImage.node.fixed,
       language: teacher.node.frontmatter.language,
       comment: teacher.node.frontmatter.comment,
       profile: teacher.node.html
@@ -66,27 +69,30 @@ export default ({ data }) => {
         <div className='inner'>
           <div className='grid-wrapper'>
             {teachers.map(teacher => (
-              <div className='col-4'>
+              <div className='col-4' style={{ marginBottom: `4em` }}>
                 <a id={teacher.id} href='#' onClick={openModal}>
-                  <Img fixed={teacher.image}
+                  <Img fixed={teacher.thumbImage}
                     style={{ display: `block`, margin: `0 auto` }}
                     imgStyle={{ borderRadius: `100%` }} />
                 </a>
-
                 <div style={{ textAlign: `center` }}>
                   <p>{`${teacher.shortNameJP}先生`}<br />
                     <small>{teacher.language}</small>
                   </p>
                 </div>
-                <p>{teacher.comment}</p>
-                <div style={{ textAlign: `center`, marginBottom: `10px` }}>
-                  <Link
-                    id={teacher.id}
-                    to='#'
-                    onClick={openModal}
-                  >
-                    {`${teacher.shortNameJP}先生`}のプロフィール
-                  </Link>
+                <div style={{ textAlign: `center` }}>
+                  <p>
+                    {teacher.comment}
+                  </p>
+                  <p>
+                    <a
+                      id={teacher.id}
+                      href='#'
+                      onClick={openModal}
+                    >
+                      {`${teacher.shortNameJP}先生`}のプロフィール
+                    </a>
+                  </p>
                   <Modal
                     isOpen={modalIsOpen}
                     //  onAfterOpen={afterOpenModal}
@@ -103,11 +109,12 @@ export default ({ data }) => {
                       <p>
                         {teacher.language}
                       </p>
-                      <Img fixed={teacher.image}
-                        style={{ display: `block`, margin: `0 auto` }}
-                        imgStyle={{ borderRadius: `4%` }}
-                      />
-
+                      <p>
+                        <Img fluid={teacher.profileImage}
+                          style={{ display: `block`, margin: `0 auto` }}
+                          imgStyle={{ borderRadius: `4%` }}
+                        />
+                      </p>
                       <div dangerouslySetInnerHTML={{ __html: teacher.profile }} />
                     </div>
                     <button onClick={closeModal}>close</button>
@@ -124,13 +131,37 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    TeacherImages: allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
+    TeacherProfileImages: allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
       edges {
         node {
-          fixed(width: 150, 
-            height: 150, 
+          fluid(
+            maxWidth: 400, 
+            maxHeight: 400, 
+            traceSVG: {
+              color: "rgba(212,212,255,0.1)"
+            }
             ) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+          parent {
+            ... on File {
+              relativePath
+            }
+          }
+        }
+      }
+    }
+    TeacherThumbImages: allImageSharp(filter: {original: {src: {regex: "/teacher/"}}}) {
+      edges {
+        node {
+          fixed(
+            width: 150, 
+            height: 150, 
+            traceSVG: {
+              color: "rgba(212,212,255,0.1)"
+            }
+            ) {
+            ...GatsbyImageSharpFixed_tracedSVG
           }
           parent {
             ... on File {

@@ -70,6 +70,9 @@
     'opacity #{_duration(modal)} ease-in-out',
     'transform #{_duration(modal)} ease-in-out'
   ));
+  & .gatsby-image-wrapper {
+    max-width: 300px;
+  }
   &:focus {
     outline: 1px solid _palette(border);
   }
