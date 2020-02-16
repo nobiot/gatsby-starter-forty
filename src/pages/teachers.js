@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import BannerLanding from '../components/BannerLanding'
@@ -93,33 +93,31 @@ export default ({ data }) => {
                       {`${teacher.shortNameJP}先生`}のプロフィール
                     </a>
                   </p>
-                  <Modal
-                    isOpen={modalIsOpen}
-                    //  onAfterOpen={afterOpenModal}
-                    closeTimeoutMS={300}
-                    onRequestClose={closeModal}
-                    shouldCloseOnOverlayClick
-                    className={'modalContent'}
-                    overlayClassName={'modalOverlay'}
-                    contentLabel={`${teacher.shortNameJP}先生`}
-                    portalClassName={`${teacher.id}ModalPortal`}
-                  >
-                    <h2>{teacher.longNameEN}<br />{teacher.longNameJP}先生</h2>
-                    <div>
-                      <p>
-                        {teacher.language}
-                      </p>
-                      <p>
-                        <Img fluid={teacher.profileImage}
-                          style={{ display: `block`, margin: `0 auto` }}
-                          imgStyle={{ borderRadius: `4%` }}
-                        />
-                      </p>
-                      <div dangerouslySetInnerHTML={{ __html: teacher.profile }} />
-                    </div>
-                    <button onClick={closeModal}>close</button>
-                  </Modal>
+
                 </div>
+                <Modal
+                  isOpen={modalIsOpen}
+                  //  onAfterOpen={afterOpenModal}
+                  closeTimeoutMS={300}
+                  onRequestClose={closeModal}
+                  shouldCloseOnOverlayClick
+                  className={'modalContent'}
+                  overlayClassName={'modalOverlay'}
+                  contentLabel={`${teacher.shortNameJP}先生`}
+                  portalClassName={`${teacher.id}ModalPortal`}
+                >
+                  <h2>{teacher.longNameEN}<br />{teacher.longNameJP}先生</h2>
+                  <div>
+                    <p>
+                      {teacher.language}
+                    </p>
+                    <Img fluid={teacher.profileImage}
+                      style={{ display: `block`, margin: `2em auto` }}
+                    />
+                    <div dangerouslySetInnerHTML={{ __html: teacher.profile }} />
+                  </div>
+                  <button onClick={closeModal}>プロフィールを閉じる</button>
+                </Modal>
               </div>
             ))}
           </div>
