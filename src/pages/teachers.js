@@ -113,6 +113,7 @@ export default ({ data }) => {
                     </p>
                     <Img fluid={teacher.profileImage}
                       style={{ display: `block`, margin: `2em auto` }}
+                      imgStyle={{ borderRadius: `4px` }}
                     />
                     <div dangerouslySetInnerHTML={{ __html: teacher.profile }} />
                   </div>
