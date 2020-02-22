@@ -29,7 +29,8 @@ class Layout extends React.Component {
     }
   }
 
-  handleToggleMenu () {
+  handleToggleMenu (event) {
+    event.preventDefault()
     this.setState({
       isMenuVisible: !this.state.isMenuVisible
     })
