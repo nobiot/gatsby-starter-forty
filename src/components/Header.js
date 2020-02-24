@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 const Header = (props) => {
   useEffect(() => {
-    const observer = new IntersectionObserver(callback, {
+    const observer = new IntersectionObserver(handleIntersect, {
       root: null,
       rootMargin: '200px',
       threshold: 0
@@ -24,7 +24,7 @@ const Header = (props) => {
     </header>
   )
 }
-const callback = (entries, observer) => {
+const handleIntersect = (entries, observer) => {
   const header = entries.find(entry => entry.target.id === 'header')
   if (header) {
     if (header.isIntersecting === false) {
